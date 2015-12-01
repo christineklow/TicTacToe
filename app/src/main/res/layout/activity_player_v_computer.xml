@@ -1,0 +1,170 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".player_v_computer"
+    android:background="@android:color/holo_blue_dark">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Player v Computer"
+        android:id="@+id/pvc_title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="40dp" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/pvc_title"
+        android:id="@+id/grid">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/horizontal2"
+            android:background="#ffffffff"
+            android:minHeight="5dp"
+            android:layout_alignBottom="@+id/grid4"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grid4"
+            android:minHeight="110dp"
+            android:minWidth="110dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/horizontal1"
+            android:background="#ffffffff"
+            android:minHeight="5dp"
+            android:layout_above="@+id/grid4"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vertical1"
+            android:background="#ffffffff"
+            android:minWidth="5dp"
+            android:layout_toLefttOf="@+id/grid4"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/grid4"
+            android:layout_toStartOf="@+id/grid4"
+            android:layout_alignParentBottom="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vertical2"
+            android:background="#ffffffff"
+            android:minWidth="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/grid4"
+            android:layout_toEndOf="@+id/grid4"
+            android:layout_alignParentBottom="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grid1"
+            android:minHeight="110dp"
+            android:minWidth="110dp"
+            android:layout_above="@+id/horizontal1"
+            android:layout_toLeftOf="@+id/vertical2"
+            android:layout_toStartOf="@+id/vertical2"
+            android:layout_toRightOf="@+id/vertical1"
+            android:layout_toEndOf="@+id/vertical1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grid2"
+            android:minHeight="110dp"
+            android:minWidth="110dp"
+            android:layout_above="@+id/horizontal1"
+            android:layout_toRightOf="@+id/grid1"
+            android:layout_toEndOf="@+id/grid1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grid0"
+            android:minHeight="110dp"
+            android:minWidth="110dp"
+            android:layout_above="@+id/horizontal1"
+            android:layout_toStartOf="@+id/vertical1"
+            android:layout_toLeftOf="@+id/vertical1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grid3"
+            android:minHeight="110dp"
+            android:minWidth="110dp"
+            android:layout_below="@+id/horizontal1"
+            android:layout_toLeftOf="@+id/vertical1"
+            android:layout_toStartOf="@+id/vertical1"
+            android:layout_above="@+id/horizontal2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grid5"
+            android:minHeight="110dp"
+            android:minWidth="110dp"
+            android:layout_below="@+id/horizontal1"
+            android:layout_toEndOf="@+id/vertical2"
+            android:layout_toRightOf="@+id/vertical2"
+            android:layout_above="@+id/horizontal2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grid7"
+            android:minHeight="110dp"
+            android:minWidth="110dp"
+            android:layout_below="@+id/horizontal2"
+            android:layout_toRightOf="@+id/vertical1"
+            android:layout_toEndOf="@+id/vertical1"
+            android:layout_toLeftOf="@+id/vertical2"
+            android:layout_toStartOf="@+id/vertical2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grid8"
+            android:minHeight="110dp"
+            android:minWidth="110dp"
+            android:layout_below="@+id/horizontal2"
+            android:layout_toRightOf="@+id/vertical2"
+            android:layout_toEndOf="@+id/vertical2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grid6"
+            android:minHeight="110dp"
+            android:minWidth="110dp"
+            android:layout_toStartOf="@+id/vertical1"
+            android:layout_below="@+id/horizontal2"
+            android:layout_toLeftOf="@+id/vertical1" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
