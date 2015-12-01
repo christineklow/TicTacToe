@@ -33,24 +33,28 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player v Player"
+        android:text="x   Player vs Player"
         android:id="@+id/pvp"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="45dp"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:layout_alignLeft="@+id/pvc"
         android:layout_alignStart="@+id/pvc"
         android:layout_alignRight="@+id/pvc"
-        android:layout_alignEnd="@+id/pvc" />
+        android:layout_alignEnd="@+id/pvc"
+        android:background="@null"
+        android:textColor="#ffffffff" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player v Computer"
+        android:text="o   Player vs Computer"
         android:id="@+id/pvc"
         android:layout_below="@+id/pvp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
-        android:textSize="20dp" />
+        android:textSize="25dp"
+        android:background="@null"
+        android:textColor="#ffffffff" />
 
 </RelativeLayout>

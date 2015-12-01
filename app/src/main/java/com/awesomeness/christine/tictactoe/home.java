@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.view.MotionEvent;
 
 public class home extends Activity {
 
@@ -19,34 +20,54 @@ public class home extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        configureoneplayer();
-        configuretwoplayer();
+        configureoneplayer();   // player vs computer
+        configuretwoplayer();   // player vs player
     }
 
     private void P_v_P() {
         startActivity(new Intent("player_v_player"));
     }
 
-    // 1 player button
+    // 1 player button leads to player vs computer game
     public void configureoneplayer(){
         pvc = (Button) findViewById(R.id.pvc);
         pvc.setEnabled(true);
-        pvc.setOnClickListener(new View.OnClickListener() {
+        pvc.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent("player_v_computer"));
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        pvc.setTextColor(0xFFC9FFBE);
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        startActivity(new Intent("player_v_computer"));
+                        pvc.setTextColor(0xFFFFFFFF);
+                    }
+                }
+                return false;
             }
         });
     }
 
-    // 2 player button
+    // 2 player button leads to player vs player game
     public void configuretwoplayer(){
         pvp = (Button) findViewById(R.id.pvp);
         pvp.setEnabled(true);
-        pvp.setOnClickListener(new View.OnClickListener() {
+        pvp.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent("player_v_player"));
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        pvp.setTextColor(0xFFC9FFBE);
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        startActivity(new Intent("player_v_player"));
+                        pvp.setTextColor(0xFFFFFFFF);
+                    }
+                }
+                return false;
             }
         });
     }

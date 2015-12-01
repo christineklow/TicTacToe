@@ -68,7 +68,7 @@ public class player_v_player extends Activity {
         for( int i = 0; i < 9; i++)
         {
             if( gameboard[i] == 0 ){    // if the spot in the gameboard is 0, that means it is still available to be played
-                switch(i){          // make the button clickable if it is still available
+                switch(i){              // make the button clickable if it is still available
                     case 0: configurebutton0(); break;
                     case 1: configurebutton1(); break;
                     case 2: configurebutton2(); break;
@@ -120,15 +120,15 @@ public class player_v_player extends Activity {
         //change colors of 3 in a row
         for( int i = 0; i < 3; i++){
             switch(win_combos[combo][i]){
-                case 0: grid0.setTextColor(0xFFFF0000); break;
-                case 1: grid1.setTextColor(0xFFFF0000); break;
-                case 2: grid2.setTextColor(0xFFFF0000); break;
-                case 3: grid3.setTextColor(0xFFFF0000); break;
-                case 4: grid4.setTextColor(0xFFFF0000); break;
-                case 5: grid5.setTextColor(0xFFFF0000); break;
-                case 6: grid6.setTextColor(0xFFFF0000); break;
-                case 7: grid7.setTextColor(0xFFFF0000); break;
-                case 8: grid8.setTextColor(0xFFFF0000); break;
+                case 0: grid0.setTextColor(0xFFFF615D); break;
+                case 1: grid1.setTextColor(0xFFFF615D); break;
+                case 2: grid2.setTextColor(0xFFFF615D); break;
+                case 3: grid3.setTextColor(0xFFFF615D); break;
+                case 4: grid4.setTextColor(0xFFFF615D); break;
+                case 5: grid5.setTextColor(0xFFFF615D); break;
+                case 6: grid6.setTextColor(0xFFFF615D); break;
+                case 7: grid7.setTextColor(0xFFFF615D); break;
+                case 8: grid8.setTextColor(0xFFFF615D); break;
             }
         }
 
@@ -173,11 +173,11 @@ public class player_v_player extends Activity {
         grid7.setEnabled(false);
         grid8.setEnabled(false);
 
-        replaybutton.setVisibility(View.VISIBLE);
-        status.setVisibility(View.VISIBLE);
+        replaybutton.setVisibility(View.VISIBLE);   // show replay button
+        status.setVisibility(View.VISIBLE);         // show status of who won
         status.setText("You Tied!");
 
-        replaybutton.setOnClickListener(new View.OnClickListener() {
+        replaybutton.setOnClickListener(new View.OnClickListener() {    // set replay button
             @Override
             public void onClick(View v) {
                 restartgame();
@@ -225,13 +225,10 @@ public class player_v_player extends Activity {
         replaybutton.setVisibility(View.INVISIBLE);
         status.setVisibility(View.INVISIBLE);
 
-        player = 1;
+        player = 1;     // reset back to player 1
 
         // reset gameboard
-        for(int i = 0 ; i < 9 ; i++)
-        {
-            gameboard[i]=0;
-        }
+        for(int i = 0 ; i < 9 ; i++) gameboard[i]=0;
     }
 
     public void setGrid(int choice)
@@ -250,6 +247,7 @@ public class player_v_player extends Activity {
             player = 1; // toggle player
         }
 
+        // set chosen grid to either x or o
         switch(choice){
             case 0: grid0.setText(xo);break;
             case 1: grid1.setText(xo);break;
@@ -276,7 +274,7 @@ public class player_v_player extends Activity {
             @Override
             public void onClick(View v) {
                 grid0.setEnabled(false);    // set to be unclickable
-                setGrid(0);
+                setGrid(0);                 // set grid choice to x or o
             }
         });
     }
@@ -287,7 +285,7 @@ public class player_v_player extends Activity {
             @Override
             public void onClick(View v) {
                 grid1.setEnabled(false);    // set to be unclickable
-                setGrid(1);
+                setGrid(1);                 // set grid choice to x or o
             }
         });
     }
@@ -298,7 +296,7 @@ public class player_v_player extends Activity {
             @Override
             public void onClick(View v) {
                 grid2.setEnabled(false);    // set to be unclickable
-                setGrid(2);
+                setGrid(2);                 // set grid choice to x or o
             }
         });
     }
@@ -309,7 +307,7 @@ public class player_v_player extends Activity {
             @Override
             public void onClick(View v) {
                 grid3.setEnabled(false);    // set to be unclickable
-                setGrid(3);
+                setGrid(3);                 // set grid choice to x or o
             }
         });
     }
@@ -320,7 +318,7 @@ public class player_v_player extends Activity {
             @Override
             public void onClick(View v) {
                 grid4.setEnabled(false);    // set to be unclickable
-                setGrid(4);
+                setGrid(4);                 // set grid choice to x or o
             }
         });
     }
@@ -331,7 +329,7 @@ public class player_v_player extends Activity {
             @Override
             public void onClick(View v) {
                 grid5.setEnabled(false);    // set to be unclickable
-                setGrid(5);
+                setGrid(5);                 // set grid choice to x or o
             }
         });
     }
@@ -342,7 +340,7 @@ public class player_v_player extends Activity {
             @Override
             public void onClick(View v) {
                 grid6.setEnabled(false);    // set to be unclickable
-                setGrid(6);
+                setGrid(6);                 // set grid choice to x or o
             }
         });
     }
@@ -353,7 +351,7 @@ public class player_v_player extends Activity {
             @Override
             public void onClick(View v) {
                 grid7.setEnabled(false);    // set to be unclickable
-                setGrid(7);
+                setGrid(7);                 // set grid choice to x or o
             }
         });
     }
@@ -364,7 +362,7 @@ public class player_v_player extends Activity {
             @Override
             public void onClick(View v) {
                 grid8.setEnabled(false);    // set to be unclickable
-                setGrid(8);
+                setGrid(8);                 // set grid choice to x or o
             }
         });
     }

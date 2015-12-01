@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 public class player_v_computer extends Activity {
 
-
     // initialize tic tac toe buttons
     Button grid0;
     Button grid1;
@@ -120,15 +119,15 @@ public class player_v_computer extends Activity {
         //change colors of 3 in a row
         for( int i = 0; i < 3; i++){
             switch(win_combos[combo][i]){
-                case 0: grid0.setTextColor(0xFFFF0000); break;
-                case 1: grid1.setTextColor(0xFFFF0000); break;
-                case 2: grid2.setTextColor(0xFFFF0000); break;
-                case 3: grid3.setTextColor(0xFFFF0000); break;
-                case 4: grid4.setTextColor(0xFFFF0000); break;
-                case 5: grid5.setTextColor(0xFFFF0000); break;
-                case 6: grid6.setTextColor(0xFFFF0000); break;
-                case 7: grid7.setTextColor(0xFFFF0000); break;
-                case 8: grid8.setTextColor(0xFFFF0000); break;
+                case 0: grid0.setTextColor(0xFFFF615D); break;
+                case 1: grid1.setTextColor(0xFFFF615D); break;
+                case 2: grid2.setTextColor(0xFFFF615D); break;
+                case 3: grid3.setTextColor(0xFFFF615D); break;
+                case 4: grid4.setTextColor(0xFFFF615D); break;
+                case 5: grid5.setTextColor(0xFFFF615D); break;
+                case 6: grid6.setTextColor(0xFFFF615D); break;
+                case 7: grid7.setTextColor(0xFFFF615D); break;
+                case 8: grid8.setTextColor(0xFFFF615D); break;
             }
         }
 
@@ -173,8 +172,8 @@ public class player_v_computer extends Activity {
         grid7.setEnabled(false);
         grid8.setEnabled(false);
 
-        replaybutton.setVisibility(View.VISIBLE);
-        status.setVisibility(View.VISIBLE);
+        replaybutton.setVisibility(View.VISIBLE);       // show replay button
+        status.setVisibility(View.VISIBLE);             // show status on who won
         status.setText("You Tied!");
 
         replaybutton.setOnClickListener(new View.OnClickListener() {
@@ -182,7 +181,7 @@ public class player_v_computer extends Activity {
             public void onClick(View v) {
                 restartgame();
             }
-        });
+        });     // set replay button
 
         return true;
     }
@@ -226,10 +225,7 @@ public class player_v_computer extends Activity {
         status.setVisibility(View.INVISIBLE);
 
         // reset gameboard
-        for(int i = 0 ; i < 9 ; i++)
-        {
-            gameboard[i]=0;
-        }
+        for(int i = 0 ; i < 9 ; i++) gameboard[i]=0;
     }
 
     public void computerturn(){
@@ -368,7 +364,7 @@ public class player_v_computer extends Activity {
                 grid1.setText("O");         // set text
                 grid1.setEnabled(false);    // set to be unclickable
                 gameboard[1]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                if (!checkwin() && !checktie()) computerturn(); // computer's turn if there was no win or tie
             }
         });
     }
@@ -381,7 +377,7 @@ public class player_v_computer extends Activity {
                 grid2.setText("O");         // set text
                 grid2.setEnabled(false);    // set to be unclickable
                 gameboard[2]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                if (!checkwin() && !checktie()) computerturn(); // computer's turn if there was no win or tie
             }
         });
     }
@@ -394,7 +390,7 @@ public class player_v_computer extends Activity {
                 grid3.setText("O");         // set text
                 grid3.setEnabled(false);    // set to be unclickable
                 gameboard[3]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                if (!checkwin() && !checktie()) computerturn(); // computer's turn if there was no win or tie
             }
         });
     }
@@ -407,7 +403,7 @@ public class player_v_computer extends Activity {
                 grid4.setText("O");         // set text
                 grid4.setEnabled(false);    // set to be unclickable
                 gameboard[4]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                if (!checkwin() && !checktie()) computerturn(); // computer's turn if there was no win or tie
             }
         });
     }
@@ -420,7 +416,7 @@ public class player_v_computer extends Activity {
                 grid5.setText("O");         // set text
                 grid5.setEnabled(false);    // set to be unclickable
                 gameboard[5]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                if (!checkwin() && !checktie()) computerturn(); // computer's turn if there was no win or tie
             }
         });
     }
@@ -433,7 +429,7 @@ public class player_v_computer extends Activity {
                 grid6.setText("O");         // set text
                 grid6.setEnabled(false);    // set to be unclickable
                 gameboard[6]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                if (!checkwin() && !checktie()) computerturn(); // computer's turn if there was no win or tie
             }
         });
     }
@@ -446,7 +442,7 @@ public class player_v_computer extends Activity {
                 grid7.setText("O");         // set text
                 grid7.setEnabled(false);    // set to be unclickable
                 gameboard[7]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                if (!checkwin() && !checktie()) computerturn(); // computer's turn if there was no win or tie
             }
         });
     }
@@ -459,7 +455,7 @@ public class player_v_computer extends Activity {
                 grid8.setText("O");         // set text
                 grid8.setEnabled(false);    // set to be unclickable
                 gameboard[8]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                if (!checkwin() && !checktie()) computerturn(); // computer's turn if there was no win or tie
             }
         });
     }
@@ -468,7 +464,7 @@ public class player_v_computer extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_player_v_computer, menu);
+        getMenuInflater().inflate(R.menu.menu_player_v_computer, menu); // computer's turn if there was no win or tie
         return true;
     }
 
