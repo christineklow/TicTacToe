@@ -4,15 +4,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.view.View;
-import java.util.Random;
+import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Random;
 
 
-public class player_v_computer extends Activity {
-
+public class player_v_player extends Activity {
 
     // initialize tic tac toe buttons
     Button grid0;
@@ -39,6 +38,7 @@ public class player_v_computer extends Activity {
      * 10 means the spot is taken by the computer
      */
     int[] gameboard = {0,0,0,0,0,0,0,0,0};
+    int player = 1;
 
     // possible winning combinations (3 in a row)
     int[][] win_combos = {
@@ -55,7 +55,7 @@ public class player_v_computer extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_player_v_computer);
+        setContentView(R.layout.activity_player_v_player);
 
         replaybutton = (Button) findViewById(R.id.replaybutton);
         status = (TextView) findViewById(R.id.status);
@@ -145,8 +145,8 @@ public class player_v_computer extends Activity {
 
         replaybutton.setVisibility(View.VISIBLE);
         status.setVisibility(View.VISIBLE);
-        if(gameboard[win_combos[combo][0]] == 1) status.setText("You Won!");
-        else status.setText("Computer Won.");
+        if(gameboard[win_combos[combo][0]] == 1) status.setText("Player 1 Won!");
+        else status.setText("Player 2 Won!");
 
         replaybutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -225,6 +225,8 @@ public class player_v_computer extends Activity {
         replaybutton.setVisibility(View.INVISIBLE);
         status.setVisibility(View.INVISIBLE);
 
+        player = 1;
+
         // reset gameboard
         for(int i = 0 ; i < 9 ; i++)
         {
@@ -232,115 +234,36 @@ public class player_v_computer extends Activity {
         }
     }
 
-    public void computerturn(){
-        // computer makes a move
-        int choice = 0;
-        int x,y,z,sum;
-        int[] choice_array = {0,0,0};
-        int weight = 0;     // priority of move
-        for( int i = 0; i < 8; i++){
-            x = win_combos[i][0];
-            y = win_combos[i][1];
-            z = win_combos[i][2];
-            sum = gameboard[x] + gameboard[y] + gameboard[z];
-            if( sum == 20 ) {
-                // if it adds to 20, then it is a winning combo
-                if(weight < 40) {
-                    weight = 40;
-                    choice_array[0] = x;
-                    choice_array[1] = y;
-                    choice_array[2] = z;
-                }
-                break;
-            }
-            else if( sum == 2){
-                // if it adds to 2, that means player has a chance to win so block it
-                if(weight < 30) {
-                    weight = 30;
-                    choice_array[0] = x;
-                    choice_array[1] = y;
-                    choice_array[2] = z;
-                }
-            }
-            else if( sum == 10 ) {
-                // if it adds to 10, that means there are 2 empty spaces in a row for a winning opportunity
-                if(weight < 20)
-                {
-                    weight = 20;
-                    choice_array[0] = x;
-                    choice_array[1] = y;
-                    choice_array[2] = z;
-                }
-            }
-            else {
-                // pick randomly
-                if(weight < 10) weight = 10;
-            }
+    public void setGrid(int choice)
+    {
+        String xo;
+        gameboard[choice] = player; // marks 1 for player 1, marks 10 for player 2
+
+        // player 1 is O
+        // player 2 is X
+        if(player == 1)  {
+            xo = "O";
+            player = 10; // toggle player
+        }
+        else {
+            xo = "X";
+            player = 1; // toggle player
         }
 
-        if(weight != 10) {    // check which is the empty space and set choice as that
-            for (int i = 0; i < 3; i++) {
-                if (gameboard[choice_array[i]] == 0) choice = choice_array[i];
-            }
-        }
-        else{
-            do {
-                Random random = new Random(System.currentTimeMillis()); // seed random time
-                choice = random.nextInt(9);     // generate random spot if no preferred choice
-            } while(gameboard[choice] != 0);    // make sure the spot is available
-        }
-
-        // disable the button of the choice and set it as x
         switch(choice){
-            case 0: {
-                grid0.setText("X");         // set text
-                grid0.setEnabled(false);    // set the button to be no longer clickable
-                break;
-            }
-            case 1: {
-                grid1.setText("X");         // set text
-                grid1.setEnabled(false);    // set the button to be no longer clickable
-                break;
-            }
-            case 2: {
-                grid2.setText("X");         // set text
-                grid2.setEnabled(false);    // set the button to be no longer clickable
-                break;
-            }
-            case 3: {
-                grid3.setText("X");         // set text
-                grid3.setEnabled(false);    // set the button to be no longer clickable
-                break;
-            }
-            case 4: {
-                grid4.setText("X");         // set text
-                grid4.setEnabled(false);    // set the button to be no longer clickable
-                break;
-            }
-            case 5: {
-                grid5.setText("X");         // set text
-                grid5.setEnabled(false);    // set the button to be no longer clickable
-                break;
-            }
-            case 6: {
-                grid6.setText("X");         // set text
-                grid6.setEnabled(false);    // set the button to be no longer clickable
-                break;
-            }
-            case 7: {
-                grid7.setText("X");         // set text
-                grid7.setEnabled(false);    // set the button to be no longer clickable
-                break;
-            }
-            case 8: {
-                grid8.setText("X");         // set text
-                grid8.setEnabled(false);    // set the button to be no longer clickable
-                break;
-            }
+            case 0: grid0.setText(xo);break;
+            case 1: grid1.setText(xo);break;
+            case 2: grid2.setText(xo);break;
+            case 3: grid3.setText(xo);break;
+            case 4: grid4.setText(xo);break;
+            case 5: grid5.setText(xo);break;
+            case 6: grid6.setText(xo);break;
+            case 7: grid7.setText(xo);break;
+            case 8: grid8.setText(xo);break;
         }
 
-        gameboard[choice] = 10;  // set spot on gameboard as taken by computer
-        checkwin();            // check if computer won
+        checkwin(); // check if anybody won
+        checktie(); // check if anybody tied
     }
 
     /***********************************************************/
@@ -352,10 +275,8 @@ public class player_v_computer extends Activity {
         grid0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grid0.setText("O");         // set text
                 grid0.setEnabled(false);    // set to be unclickable
-                gameboard[0]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();    // computer's turn if there was no win or tie
+                setGrid(0);
             }
         });
     }
@@ -365,10 +286,8 @@ public class player_v_computer extends Activity {
         grid1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grid1.setText("O");         // set text
                 grid1.setEnabled(false);    // set to be unclickable
-                gameboard[1]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                setGrid(1);
             }
         });
     }
@@ -378,10 +297,8 @@ public class player_v_computer extends Activity {
         grid2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grid2.setText("O");         // set text
                 grid2.setEnabled(false);    // set to be unclickable
-                gameboard[2]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                setGrid(2);
             }
         });
     }
@@ -391,10 +308,8 @@ public class player_v_computer extends Activity {
         grid3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grid3.setText("O");         // set text
                 grid3.setEnabled(false);    // set to be unclickable
-                gameboard[3]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                setGrid(3);
             }
         });
     }
@@ -404,10 +319,8 @@ public class player_v_computer extends Activity {
         grid4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grid4.setText("O");         // set text
                 grid4.setEnabled(false);    // set to be unclickable
-                gameboard[4]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                setGrid(4);
             }
         });
     }
@@ -417,10 +330,8 @@ public class player_v_computer extends Activity {
         grid5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grid5.setText("O");         // set text
                 grid5.setEnabled(false);    // set to be unclickable
-                gameboard[5]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                setGrid(5);
             }
         });
     }
@@ -430,10 +341,8 @@ public class player_v_computer extends Activity {
         grid6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grid6.setText("O");         // set text
                 grid6.setEnabled(false);    // set to be unclickable
-                gameboard[6]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                setGrid(6);
             }
         });
     }
@@ -443,10 +352,8 @@ public class player_v_computer extends Activity {
         grid7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grid7.setText("O");         // set text
                 grid7.setEnabled(false);    // set to be unclickable
-                gameboard[7]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                setGrid(7);
             }
         });
     }
@@ -456,19 +363,16 @@ public class player_v_computer extends Activity {
         grid8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grid8.setText("O");         // set text
                 grid8.setEnabled(false);    // set to be unclickable
-                gameboard[8]=1;             // marks 1 for player pressing button
-                if (!checkwin() && !checktie()) computerturn();
+                setGrid(8);
             }
         });
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_player_v_computer, menu);
+        getMenuInflater().inflate(R.menu.menu_player_v_player, menu);
         return true;
     }
 

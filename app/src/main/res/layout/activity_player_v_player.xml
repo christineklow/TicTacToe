@@ -11,12 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Player v Computer"
+        android:text="Player v Player"
         android:id="@+id/pvc_title"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="40dp"
-        android:textColor="#ffffffff" />
+        android:textSize="40dp" />
 
     <RelativeLayout
         android:layout_width="fill_parent"

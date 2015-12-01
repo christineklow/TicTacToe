@@ -4,18 +4,19 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".home"
-    android:background="@android:color/holo_blue_dark">
+    android:background="@drawable/appbackground">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Tic Tac Toe"
-        android:id="@+id/textView"
+        android:id="@+id/TicTaceToetitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="119dp"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:textSize="50dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,26 +24,33 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Select Playing Mode"
         android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/TicTaceToetitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="43dp"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:textSize="30dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Player v Player"
-        android:id="@+id/button"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/pvp"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="45dp"
+        android:textSize="20dp"
+        android:layout_alignLeft="@+id/pvc"
+        android:layout_alignStart="@+id/pvc"
+        android:layout_alignRight="@+id/pvc"
+        android:layout_alignEnd="@+id/pvc" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Player v Computer"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button"
+        android:id="@+id/pvc"
+        android:layout_below="@+id/pvp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp" />
+        android:layout_marginTop="38dp"
+        android:textSize="20dp" />
 
 </RelativeLayout>
